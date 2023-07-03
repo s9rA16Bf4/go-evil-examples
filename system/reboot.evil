@@ -1,0 +1,22 @@
+@ Reboots the computer @
+
+use system
+
+[
+    version 3.0
+    output reboot
+    os linux
+    arch amd64
+    obfuscate false
+    debugger_behavior stop
+]
+
+boot reboot {
+    system::reboot()
+}
+
+@ These function will never be called @
+loop main_func {
+    system::outln("hello, world!")
+    system::exit("0")
+}
