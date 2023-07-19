@@ -1,0 +1,23 @@
+@ Showcase of how you can simply your development by utilizing a prebuilt html file @
+
+use window
+use system
+
+[
+    version 3.0
+    output load
+    os linux
+    arch amd64
+    obfuscate false
+]
+
+boot window_run {
+    window::load("$39$/examples/window/index.html")
+
+    window::width("600")
+    window::height("800")
+
+
+    window::run()
+    system::exit("1")
+}
