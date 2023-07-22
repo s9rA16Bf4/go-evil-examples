@@ -1,0 +1,21 @@
+@ Gets a file at the provided URL  @
+
+use system
+use network
+
+[
+    version 3.0
+    output get
+    os linux
+    arch amd64
+    obfuscate false
+    debugger_behavior stop
+]
+
+loop main_func {
+    network::get("https://httpbin.org/get") @ The output is saved in the first runtime variable @
+    system::outln("€1€")
+
+
+    system::exit("0")
+}

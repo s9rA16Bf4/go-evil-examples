@@ -1,0 +1,21 @@
+@ Posts some temp data to the provided URL  @
+@ The output is returned to the program, and is printed to the screen @
+
+use system
+use network
+
+[
+    version 3.0
+    output post
+    os linux
+    arch amd64
+    obfuscate false
+    debugger_behavior stop
+]
+
+loop main_func {
+    network::post(${"https://httpbin.org/post", "temp-data", "super-evil-agent", "text/plain"}$) @ The output is saved in the first runtime variable @
+    system::outln("€1€")
+
+    system::exit("0")
+}
