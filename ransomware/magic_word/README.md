@@ -1,5 +1,5 @@
 ## Magic word
-![Cover photo](https://github.com/s9rA16Bf4/go-evil/blob/v2/examples/ransomware/Alien/background.jpg?raw=true)
+![Cover photo](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExanR0eHMyN3lpbjlva3Q4MDc3OHFlOGNnaWgxZmltbmNuZDJhaHVvdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5ftsmLIqktHQA/giphy.gif)
 
 ### Purpose
 The purpose behind is to provide a fully showcasing example of how you can utilize goevil to create what could be a wiper being disguised
@@ -24,7 +24,7 @@ The ransomware will only work on a nix based system but can with ease be changed
 ### Detection
 The best way forward to detect it is to look for files that have the extension '.magic' in the Desktop directory.
 
-As of 2022-10-29, virustotal will not detect the ransomware as something malicious.
-![Result](https://github.com/s9rA16Bf4/go-evil/blob/v2/images/Virus_total_alien_ransomware_result.png?raw=true)
+As of 2023-07-20, virustotal has not detected the wiper as something malicious.
+![Result](https://github.com/s9rA16Bf4/go-evil/blob/main/images/Virus_total_magic_word.png)
 
 [Link to virustotal result](https://www.virustotal.com/gui/file/163dccd0033ba59f9702ae9310cd939e7144af6643470b1299918f1815a6604a?nocache=1)
